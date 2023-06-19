@@ -14,7 +14,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
           onPressed: () {
             //Get the current location
           },
-          child: const Text('Get Location'),
+          child: Text('Get Location'),
         ),
       ),
     );

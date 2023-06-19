@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:clima/utilities/constants.dart';
+import 'package:clima/widgets/icon_button_widgets/icon_button_widget.dart';
 
 class LocationScreen extends StatefulWidget {
   @override
@@ -13,13 +14,13 @@ class _LocationScreenState extends State<LocationScreen> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: const AssetImage('images/location_background.jpg'),
+            image: AssetImage('images/location_background.jpg'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
                 Colors.white.withOpacity(0.8), BlendMode.dstATop),
           ),
         ),
-        constraints: const BoxConstraints.expand(),
+        constraints: BoxConstraints.expand(),
         child: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -30,14 +31,14 @@ class _LocationScreenState extends State<LocationScreen> {
                 children: <Widget>[
                   TextButton(
                     onPressed: () {},
-                    child: const Icon(
+                    child: Icon(
                       Icons.near_me,
                       size: 50.0,
                     ),
                   ),
                   TextButton(
                     onPressed: () {},
-                    child: const Icon(
+                    child: Icon(
                       Icons.location_city,
                       size: 50.0,
                     ),
@@ -45,9 +46,9 @@ class _LocationScreenState extends State<LocationScreen> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 15.0),
+                padding: EdgeInsets.only(left: 15.0),
                 child: Row(
-                  children: const <Widget>[
+                  children: <Widget>[
                     Text(
                       '32°',
                       style: kTempTextStyle,
@@ -59,7 +60,7 @@ class _LocationScreenState extends State<LocationScreen> {
                   ],
                 ),
               ),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.only(right: 15.0),
                 child: Text(
                   "It's 🍦 time in San Francisco!",
@@ -70,6 +71,28 @@ class _LocationScreenState extends State<LocationScreen> {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class IconButtonWidget extends StatelessWidget {
+  const IconButtonWidget({
+    super.key,
+    required this.onPressed,
+    required this.icon,
+  });
+
+  final Function() onPressed;
+  final IconData icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: onPressed,
+      icon: Icon(
+        icon,
+        size: 40.0,
       ),
     );
   }
